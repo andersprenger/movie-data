@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movie-cell" rowHeight="100" id="9kM-rd-CAY">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movie-cell" rowHeight="100" id="9kM-rd-CAY" customClass="MovieTableViewCell" customModule="Cinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9kM-rd-CAY" id="68g-ME-okp">
@@ -78,6 +78,12 @@
                                         <constraint firstAttribute="trailing" secondItem="bGe-dM-pQb" secondAttribute="trailing" id="i6Y-oZ-sf4"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="date" destination="eT6-Mk-P1L" id="lgU-UE-SIp"/>
+                                    <outlet property="length" destination="8EH-1q-mJQ" id="pWy-yY-nsk"/>
+                                    <outlet property="name" destination="4ya-UL-JoS" id="WmD-xT-TjE"/>
+                                    <outlet property="revenue" destination="o1m-mN-j2F" id="4eR-fA-KGW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -97,6 +103,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xEL-3c-2Ek" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bpE-0n-t33">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

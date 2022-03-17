@@ -14,6 +14,7 @@
 		71188AD427E3F31800EE9DD2 /* Cinema.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71188AD227E3F31800EE9DD2 /* Cinema.xcdatamodeld */; };
 		71188AD627E3F31A00EE9DD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71188AD527E3F31A00EE9DD2 /* Assets.xcassets */; };
 		71188AD927E3F31A00EE9DD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71188AD727E3F31A00EE9DD2 /* LaunchScreen.storyboard */; };
+		71188AE127E3F92D00EE9DD2 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71188AE027E3F92D00EE9DD2 /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		71188AD527E3F31A00EE9DD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71188AD827E3F31A00EE9DD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71188ADA27E3F31A00EE9DD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71188AE027E3F92D00EE9DD2 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				71188AC927E3F31800EE9DD2 /* AppDelegate.swift */,
 				71188ACB27E3F31800EE9DD2 /* SceneDelegate.swift */,
 				71188ACD27E3F31800EE9DD2 /* ViewController.swift */,
+				71188AE027E3F92D00EE9DD2 /* MovieTableViewCell.swift */,
 				71188ACF27E3F31800EE9DD2 /* Main.storyboard */,
 				71188AD527E3F31A00EE9DD2 /* Assets.xcassets */,
 				71188AD727E3F31A00EE9DD2 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71188AE127E3F92D00EE9DD2 /* MovieTableViewCell.swift in Sources */,
 				71188AD427E3F31800EE9DD2 /* Cinema.xcdatamodeld in Sources */,
 				71188ACE27E3F31800EE9DD2 /* ViewController.swift in Sources */,
 				71188ACA27E3F31800EE9DD2 /* AppDelegate.swift in Sources */,
