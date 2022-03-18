@@ -9,6 +9,8 @@ import UIKit
 
 class ProductionCompanyViewController: UITableViewController, Storyboarded {
 
+    weak var coordinator: Coordinator? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

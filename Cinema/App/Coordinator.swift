@@ -14,8 +14,42 @@ class Coordinator {
         self.navigationController = navigationController
     }
 
-    func start() {
+    func showMovies() {
         let vc = ViewController.instantiate()
+        vc.coordinator = self
+        
+        vc.movies = vc.allMovies()
+        
+        navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func showMovies(with actor: Actor) {
+        let vc = ViewController.instantiate()
+        vc.coordinator = self
+        
+        vc.movies = vc.allMovies(with: actor)
+        
+        navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func showMovies(by productionCompany: ProductionCompany) {
+        let vc = ViewController.instantiate()
+        vc.coordinator = self
+        
+        vc.movies = vc.allMovies(by: productionCompany)
+        
+        navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func showActors() {
+        let vc = ActorsViewController.instantiate()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func showProdCompanies() {
+        let vc = ProductionCompanyViewController.instantiate()
+        vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
 }

@@ -10,6 +10,8 @@ import CoreData
 
 class ViewController: UITableViewController, Storyboarded {
     
+    weak var coordinator: Coordinator? = nil
+    
     var container: NSPersistentContainer {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError()
@@ -31,9 +33,9 @@ class ViewController: UITableViewController, Storyboarded {
         if UserDefaults.standard.bool(forKey: "isPopulated") == false {
             addData()
         }
-        
-        movies = allMovies() ?? []
     }
+    
+    // MARK: - Table
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         1
@@ -75,10 +77,10 @@ class ViewController: UITableViewController, Storyboarded {
             }
             movies.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
+    
+    // MARK: - Helper
     
     func dateHelper(day: Int, month: Int, year: Int) -> Date? {
         var components = DateComponents()
@@ -89,14 +91,24 @@ class ViewController: UITableViewController, Storyboarded {
         return Calendar(identifier: .gregorian).date(from: components)
     }
     
-    func allMovies() -> [Movie]? {
+    // MARK: - Code Data
+    
+    func allMovies() -> [Movie] {
         do {
             return try container.viewContext.fetch(Movie.fetchRequest())
         } catch {
             print(error.localizedDescription)
         }
         
-        return nil
+        return []
+    }
+    
+    func allMovies(with actor: Actor) -> [Movie] {
+        actor.movies?.allObjects as? [Movie] ?? []
+    }
+    
+    func allMovies(by productionCompany: ProductionCompany) -> [Movie] {
+        productionCompany.movies?.allObjects as? [Movie] ?? []
     }
     
     @objc private func addData() {
@@ -276,7 +288,7 @@ class ViewController: UITableViewController, Storyboarded {
         UserDefaults.standard.set(true, forKey: "isPopulated")
         print("populou")
         
-        movies = allMovies() ?? []
+        movies = allMovies()
         tableView.reloadData()
     }
 }
