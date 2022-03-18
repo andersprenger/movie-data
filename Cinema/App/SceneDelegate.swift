@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let navController = UINavigationController()
         let coordinator = Coordinator(navigationController: navController)
-        coordinator.showProductionCompanies()
+        coordinator.showActors()
 
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navController
