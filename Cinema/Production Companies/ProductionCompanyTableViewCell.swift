@@ -1,18 +1,14 @@
 //
-//  MovieTableViewCell.swift
+//  ProductionCompanyTableViewCell.swift
 //  Cinema
 //
-//  Created by Anderson Sprenger on 17/03/22.
+//  Created by Anderson Sprenger on 18/03/22.
 //
 
 import UIKit
 
-class MovieTableViewCell: UITableViewCell {
+class ProductionCompanyTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var length: UILabel!
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var revenue: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

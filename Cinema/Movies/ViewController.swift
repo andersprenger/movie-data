@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, Storyboarded {
     
     var container: NSPersistentContainer {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -26,10 +26,10 @@ class ViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Movies"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addData))
         
         if UserDefaults.standard.bool(forKey: "isPopulated") == false {
-            populate()
+            addData()
         }
         
         movies = allMovies() ?? []
@@ -55,6 +55,8 @@ class ViewController: UITableViewController {
         
         cell.date.text = dateFormatter.string(from: movie.releaseDate!) //movie.releaseDate?.formatted()
         cell.revenue.text = "Revenue \(movie.revenue)"
+        
+        cell.productionCompany.text = movie.productionCompany?.name
         
         return cell
     }
@@ -97,11 +99,7 @@ class ViewController: UITableViewController {
         return nil
     }
     
-    @objc func addTapped() {
-        print(#function)
-    }
-    
-    private func populate() {
+    @objc private func addData() {
         // *******************************************************
         // MOVIES
         // *******************************************************
@@ -256,19 +254,19 @@ class ViewController: UITableViewController {
         pc1.name = "Disney"
         pc1.country = "US"
         pc1.website = "disney.com"
-        pc1.movies = NSSet(array: [movie2, movie3, movie5])
+        pc1.movies = NSSet(array: [movie2, movie3, movie5, movie6])
 
         let pc2 = ProductionCompany(context: container.viewContext)
         pc2.name = "Warner"
         pc2.country = "US"
         pc2.website = "warner.com"
-        pc2.movies = NSSet(array: [movie1])
+        pc2.movies = NSSet(array: [movie1, movie7])
         
         let pc3 = ProductionCompany(context: container.viewContext)
         pc3.name = "Sony"
         pc3.country = "JP"
         pc3.website = "sony.com"
-        pc3.movies = NSSet(array: [movie4])
+        pc3.movies = NSSet(array: [movie4, movie8])
         
         try! container.viewContext.save()
         
@@ -277,6 +275,9 @@ class ViewController: UITableViewController {
         // *******************************************************
         UserDefaults.standard.set(true, forKey: "isPopulated")
         print("populou")
+        
+        movies = allMovies() ?? []
+        tableView.reloadData()
     }
 }
 
