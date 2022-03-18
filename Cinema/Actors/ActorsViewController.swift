@@ -30,7 +30,7 @@ class ActorsViewController: UITableViewController, Storyboarded {
         actors = allActors()
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table view
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         1
@@ -61,16 +61,8 @@ class ActorsViewController: UITableViewController, Storyboarded {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator?.showMovies(with: actors[indexPath.row])
     }
-    
-    func allActors() -> [Actor] {
-        do {
-            return try container.viewContext.fetch(Actor.fetchRequest())
-        } catch {
-            print(error.localizedDescription)
-        }
         
-        return []
-    }
+    // MARK: Core Data
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -83,5 +75,15 @@ class ActorsViewController: UITableViewController, Storyboarded {
             actors.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+
+    func allActors() -> [Actor] {
+        do {
+            return try container.viewContext.fetch(Actor.fetchRequest())
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return []
     }
 }

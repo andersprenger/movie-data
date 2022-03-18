@@ -47,7 +47,7 @@ class Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func showProdCompanies() {
+    func showProductionCompanies() {
         let vc = ProductionCompanyViewController.instantiate()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)

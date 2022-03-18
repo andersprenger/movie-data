@@ -233,6 +233,11 @@
                                         <constraint firstItem="quM-gW-XVj" firstAttribute="top" secondItem="KBI-z9-aLQ" secondAttribute="top" constant="20" id="tly-Sf-1hi"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="country" destination="fpn-pw-sqh" id="Cpn-85-MPl"/>
+                                    <outlet property="name" destination="quM-gW-XVj" id="iig-11-IXA"/>
+                                    <outlet property="website" destination="pbA-gh-o0T" id="keM-bJ-aLj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
