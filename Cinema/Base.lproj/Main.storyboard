@@ -16,18 +16,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movie-cell" rowHeight="100" id="9kM-rd-CAY" customClass="MovieTableViewCell" customModule="Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movie-cell" rowHeight="120" id="9kM-rd-CAY" customClass="MovieTableViewCell" customModule="Cinema" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9kM-rd-CAY" id="68g-ME-okp">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGe-dM-pQb">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="88" translatesAutoresizingMaskIntoConstraints="NO" id="GbN-Wy-rfb">
-                                                    <rect key="frame" x="20" y="45.5" width="374" height="19.5"/>
+                                                    <rect key="frame" x="20" y="55.5" width="374" height="19.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="\(length) minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EH-1q-mJQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="253.5" height="19.5"/>
@@ -44,13 +44,13 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Revenue: \(revenue)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1m-mN-j2F">
-                                                    <rect key="frame" x="20" y="69" width="374" height="20.5"/>
+                                                    <rect key="frame" x="20" y="79" width="374" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Name]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ya-UL-JoS">
-                                                    <rect key="frame" x="20" y="8" width="374" height="33.5"/>
+                                                    <rect key="frame" x="20" y="18" width="374" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                                 <constraint firstItem="GbN-Wy-rfb" firstAttribute="top" secondItem="4ya-UL-JoS" secondAttribute="bottom" constant="4" id="Zsa-h5-Jyu"/>
                                                 <constraint firstItem="o1m-mN-j2F" firstAttribute="top" secondItem="GbN-Wy-rfb" secondAttribute="bottom" constant="4" id="a7F-uT-52s"/>
                                                 <constraint firstItem="4ya-UL-JoS" firstAttribute="leading" secondItem="bGe-dM-pQb" secondAttribute="leading" constant="20" id="jgY-Hf-9gI"/>
-                                                <constraint firstItem="4ya-UL-JoS" firstAttribute="top" secondItem="bGe-dM-pQb" secondAttribute="top" constant="8" id="lV6-AX-gUd"/>
+                                                <constraint firstItem="4ya-UL-JoS" firstAttribute="top" secondItem="bGe-dM-pQb" secondAttribute="top" constant="18" id="lV6-AX-gUd"/>
                                                 <constraint firstAttribute="trailing" secondItem="4ya-UL-JoS" secondAttribute="trailing" constant="20" id="yWq-dO-zfk"/>
                                             </constraints>
                                         </view>

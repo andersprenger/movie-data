@@ -26,6 +26,8 @@ class ViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Movies"
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        
         if UserDefaults.standard.bool(forKey: "isPopulated") == false {
             populate()
         }
@@ -58,16 +60,7 @@ class ViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        CGFloat(100)
-    }
-    
-    func dateHelper(day: Int, month: Int, year: Int) -> Date? {
-        var components = DateComponents()
-        components.day = day
-        components.month = month
-        components.year = year
-        
-        return Calendar(identifier: .gregorian).date(from: components)
+        CGFloat(120)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -85,6 +78,15 @@ class ViewController: UITableViewController {
         }
     }
     
+    func dateHelper(day: Int, month: Int, year: Int) -> Date? {
+        var components = DateComponents()
+        components.day = day
+        components.month = month
+        components.year = year
+        
+        return Calendar(identifier: .gregorian).date(from: components)
+    }
+    
     func allMovies() -> [Movie]? {
         do {
             return try container.viewContext.fetch(Movie.fetchRequest())
@@ -93,6 +95,10 @@ class ViewController: UITableViewController {
         }
         
         return nil
+    }
+    
+    @objc func addTapped() {
+        print(#function)
     }
     
     private func populate() {
