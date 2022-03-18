@@ -6,40 +6,63 @@
 //
 
 import UIKit
+import CoreData
 
-class ActorsViewController: UITableViewController {
+class ActorsViewController: UITableViewController, Storyboarded {
+    
+    var actors: [Actor] = []
+    
+    var container: NSPersistentContainer {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError()
+        }
+        
+        return appDelegate.persistentContainer
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        actors = allActors()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        actors.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: ActorTableViewCell.id, for: indexPath) as! ActorTableViewCell
+        let actor = actors[indexPath.row]
+        
+        cell.actorName.text = actor.name
+        cell.actorGender.text = actor.gender
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM d, yyyy"
+        cell.birthDate.text = dateFormatter.string(from: actor.birthDate!)
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        120
+    }
+    
+    func allActors() -> [Actor] {
+        do {
+            return try container.viewContext.fetch(Actor.fetchRequest())
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return []
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -8,16 +8,11 @@
 import UIKit
 
 class ActorTableViewCell: UITableViewCell {
+    
+    static let id = "ActorTableViewCell"
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    @IBOutlet weak var actorName: UILabel!
+    @IBOutlet weak var actorGender: UILabel!
+    @IBOutlet weak var birthDate: UILabel!
+    
 }

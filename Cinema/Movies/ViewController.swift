@@ -53,7 +53,7 @@ class ViewController: UITableViewController, Storyboarded {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM d, yyyy"
         
-        cell.date.text = dateFormatter.string(from: movie.releaseDate!) //movie.releaseDate?.formatted()
+        cell.date.text = dateFormatter.string(from: movie.releaseDate!)
         cell.revenue.text = "Revenue \(movie.revenue)"
         
         cell.productionCompany.text = movie.productionCompany?.name
@@ -62,7 +62,7 @@ class ViewController: UITableViewController, Storyboarded {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        CGFloat(120)
+        120
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

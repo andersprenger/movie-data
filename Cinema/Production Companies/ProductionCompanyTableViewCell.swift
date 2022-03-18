@@ -9,6 +9,8 @@ import UIKit
 
 class ProductionCompanyTableViewCell: UITableViewCell {
 
+    static let id = "ProductionCompanyTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

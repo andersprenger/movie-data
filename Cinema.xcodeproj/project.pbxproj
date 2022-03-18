@@ -86,8 +86,8 @@
 		718944E927E50315001099AE /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				71188AE027E3F92D00EE9DD2 /* MovieTableViewCell.swift */,
 				71188ACD27E3F31800EE9DD2 /* ViewController.swift */,
+				71188AE027E3F92D00EE9DD2 /* MovieTableViewCell.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";

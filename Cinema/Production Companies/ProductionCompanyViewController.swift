@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductionCompanyViewController: UITableViewController {
+class ProductionCompanyViewController: UITableViewController, Storyboarded {
 
     override func viewDidLoad() {
         super.viewDidLoad()
