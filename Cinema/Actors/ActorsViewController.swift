@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ActorsViewController: UITableViewController, Storyboarded {
+class ActorsViewController: UITableViewController {
     
     var coordinator: Coordinator? = nil
     
@@ -27,6 +27,8 @@ class ActorsViewController: UITableViewController, Storyboarded {
         
         self.title = "Actors"
         
+        tableView.register(UINib(nibName: ActorCell.id, bundle: nil), forCellReuseIdentifier: ActorCell.id)
+        
         actors = allActors()
     }
 
@@ -41,11 +43,11 @@ class ActorsViewController: UITableViewController, Storyboarded {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ActorTableViewCell.id, for: indexPath) as! ActorTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ActorCell.id, for: indexPath) as! ActorCell
         let actor = actors[indexPath.row]
         
-        cell.actorName.text = actor.name
-        cell.actorGender.text = actor.gender
+        cell.name.text = actor.name
+        cell.gender.text = actor.gender
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM d, yyyy"

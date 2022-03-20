@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ProductionCompanyViewController: UITableViewController, Storyboarded {
+class ProductionCompanyViewController: UITableViewController {
 
     var coordinator: Coordinator? = nil
     
@@ -25,6 +25,8 @@ class ProductionCompanyViewController: UITableViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(UINib(nibName: ProductionCompanyCell.id, bundle: nil), forCellReuseIdentifier: ProductionCompanyCell.id)
+        
         productonCompanies = allProductionCompanies()
     }
 
@@ -39,7 +41,7 @@ class ProductionCompanyViewController: UITableViewController, Storyboarded {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProductionCompanyTableViewCell.id, for: indexPath) as! ProductionCompanyTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductionCompanyCell.id, for: indexPath) as! ProductionCompanyCell
         let productionCompany = productonCompanies[indexPath.row]
 
         cell.name.text = productionCompany.name

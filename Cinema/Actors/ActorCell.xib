@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActorCell" rowHeight="120" id="OME-QL-V1V" customClass="ActorCell" customModule="Cinema" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OME-QL-V1V" id="yOQ-pr-cdO">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Actor Name]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsu-sb-zbk">
+                        <rect key="frame" x="20" y="20" width="374" height="33.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="hdT-Ly-IXu">
+                        <rect key="frame" x="20" y="61.5" width="374" height="20.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Gender]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkG-Sd-df4">
+                                <rect key="frame" x="0.0" y="0.0" width="223" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="[birth date]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJ4-pW-Uan">
+                                <rect key="frame" x="288" y="0.0" width="86" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="41.5" id="2cr-qG-IjV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wsu-sb-zbk" firstAttribute="top" secondItem="yOQ-pr-cdO" secondAttribute="top" constant="20" id="44L-Xf-ZSs"/>
+                    <constraint firstAttribute="trailing" secondItem="hdT-Ly-IXu" secondAttribute="trailing" constant="20" id="AXi-vk-iQC"/>
+                    <constraint firstItem="wsu-sb-zbk" firstAttribute="leading" secondItem="yOQ-pr-cdO" secondAttribute="leading" constant="20" id="RAi-dH-VLI"/>
+                    <constraint firstItem="hdT-Ly-IXu" firstAttribute="leading" secondItem="yOQ-pr-cdO" secondAttribute="leading" constant="20" id="acT-56-Jaw"/>
+                    <constraint firstAttribute="trailing" secondItem="wsu-sb-zbk" secondAttribute="trailing" constant="20" id="i26-Re-vYt"/>
+                    <constraint firstItem="hdT-Ly-IXu" firstAttribute="top" secondItem="wsu-sb-zbk" secondAttribute="bottom" constant="8" id="mDl-9a-lRc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="birthDate" destination="vJ4-pW-Uan" id="ida-g1-gg5"/>
+                <outlet property="gender" destination="fkG-Sd-df4" id="P0c-0e-qQg"/>
+                <outlet property="name" destination="wsu-sb-zbk" id="iDQ-54-p3Y"/>
+            </connections>
+            <point key="canvasLocation" x="-93" y="137"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UITableViewController, Storyboarded {
+class MovieViewController: UITableViewController {
     
     weak var coordinator: Coordinator? = nil
     
@@ -30,6 +30,8 @@ class ViewController: UITableViewController, Storyboarded {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addData))
         
+        tableView.register(UINib(nibName: MovieCell.id, bundle: nil), forCellReuseIdentifier: MovieCell.id)
+        
         if UserDefaults.standard.bool(forKey: "isPopulated") == false {
             addData()
         }
@@ -46,7 +48,7 @@ class ViewController: UITableViewController, Storyboarded {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movie-cell", for: indexPath) as! MovieTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.id, for: indexPath) as! MovieCell
         let movie = movies[indexPath.row]
         
         cell.name.text = movie.name
