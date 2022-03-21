@@ -10,10 +10,8 @@ import CoreData
 
 class ActorsViewController: UITableViewController {
     
-    var coordinator: Coordinator? = nil
-    
+    var coordinator: ActorsCoordinator?
     var actors: [Actor] = []
-    
     var container: NSPersistentContainer {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError()
@@ -24,8 +22,6 @@ class ActorsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Actors"
         
         tableView.register(UINib(nibName: ActorCell.id, bundle: nil), forCellReuseIdentifier: ActorCell.id)
         
@@ -57,7 +53,7 @@ class ActorsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        120
+        100
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

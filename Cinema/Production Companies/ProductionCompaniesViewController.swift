@@ -8,12 +8,10 @@
 import UIKit
 import CoreData
 
-class ProductionCompanyViewController: UITableViewController {
+class ProductionCompaniesViewController: UITableViewController {
 
-    var coordinator: Coordinator? = nil
-    
+    var coordinator: ProductionCompaniesCoordinator?
     var productonCompanies: [ProductionCompany] = []
-    
     var container: NSPersistentContainer {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError()
@@ -52,7 +50,7 @@ class ProductionCompanyViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        120
+        100
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

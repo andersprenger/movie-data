@@ -8,10 +8,10 @@
 import UIKit
 import CoreData
 
-class MovieViewController: UITableViewController {
+class MoviesViewController: UITableViewController {
     
-    weak var coordinator: Coordinator? = nil
-    
+    var coordinator: Coordinator? = nil
+    var movies: [Movie] = []
     var container: NSPersistentContainer {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError()
@@ -20,15 +20,8 @@ class MovieViewController: UITableViewController {
         return appDelegate.persistentContainer
     }
     
-    var movies: [Movie] = []
-
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-        navigationController?.navigationBar.prefersLargeTitles = true
-        self.title = "Movies"
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addData))
         
         tableView.register(UINib(nibName: MovieCell.id, bundle: nil), forCellReuseIdentifier: MovieCell.id)
         
@@ -56,9 +49,12 @@ class MovieViewController: UITableViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM d, yyyy"
-        
         cell.date.text = dateFormatter.string(from: movie.releaseDate!)
-        cell.revenue.text = "Revenue \(movie.revenue)"
+        
+        let moneyFormater = NumberFormatter()
+        moneyFormater.numberStyle = .currency
+        moneyFormater.locale = Locale(identifier: "en_US")
+        cell.revenue.text = "Revenue \(moneyFormater.string(from: movie.revenue as NSNumber) ?? "nil")"
         
         cell.productionCompany.text = movie.productionCompany?.name
         
@@ -113,7 +109,7 @@ class MovieViewController: UITableViewController {
         productionCompany.movies?.allObjects as? [Movie] ?? []
     }
     
-    @objc private func addData() {
+    @objc func addData() {
         // *******************************************************
         // MOVIES
         // *******************************************************
